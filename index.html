@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+		body{
+			background: black;
+			margin: 0px;
+			font-family: arial;
+			user-select: none;	
+		}
+		div#midtext{
+			color: white;
+			font-size: 180px;
+			top: 0.09em;
+			position: relative;          
+		}
+		div#greet{
+			color: white;
+			font-size: 60px;
+			top: -1em;
+			text-align:center; 
+			position: relative;
+		}
+		img{
+			height:100%;
+			width:100%;
+			position: fixed;
+            backface-visibility: visible;
+			top: 0;
+			opacity: .45;
+		}
+		#temp,#location{
+          font-size: 20px;
+          color: white;
+          text-align: right;
+          margin-right: 10px;
+		}
+		.fas{
+			left: 88%;
+			position: relative;
+			color: white;
+		}
+		div.goals{    		
+    		font-family: 'Oswald', sans-serif;
+            top:-15em;
+    		position:relative;
+    		opacity: 0.5;    		    		
+    	}
+    	h1.heading{
+    		font-size: 60px;
+    		color:white;
+    	}
+    	input#one{
+            height:34px;
+            width:280px;
+            border-radius:12px;
+            border-width:0;
+            background: rgb(255,250,250);
+            color:black;
+            opacity: 0.9; 
+    	}
+    	input#one:hover{
+    		background: white;
+    		opacity:1;
+    	}
+    	button#two,#three{
+    		border-radius:10px;
+    		background-color: transparent;
+    	}
+    	label{
+    		color:white;
+    		font-size: 20px;
+    		font-weight: bolder;
+            opacity: 1;
+            position: relative;
+    	}
+		
+	</style>
+
+</head>
+<body>
+
+<!-- <div class='fas fa-sun' ></div><div id="temp">24 &#8451;</div>--><div id="location">Delhi<br>27'C</div> 
+<center><div id="midtext"><div id="hour">11:00</div>
+<div id="greet">Good Morning, Sahil</div>
+</div></center>
+<img id="imgtag" src="">
+<br><br><br><br><br><br><br><br><br><br>
+
+<center>
+		<div class="goals">
+		<!-- <h1 class="heading">My Todo List <i class="fas fa-thumbs-up"></i></h1> -->
+	<div id="first">
+		<input type="text" name="inputs" id="one" placeholder=" Write your goals"><br><br>
+		<button type="submit" class="btn btn-success" id="two">Add Todo </button>
+		<button type="submit" class="btn btn-danger" id="three">Clear Todo List </button>
+		<!-- <button type="submit" class="btn btn-success" id="twoo">Cheched Are Done </button> -->
+	</div><br>
+	<div id="second">
+		<ul id="list">
+			<!-- <li id="list1">
+				<div onclick="checkbox()">
+				<input type="checkbox" id="checked"  >
+				<label id="todolist">
+				&nbsp;&nbsp;Go to code</label>
+			</div>
+			</li> -->
+			<!-- <li id="list1">
+				<input type="checkbox" checked><label>Go to run</label>
+			</li>
+			<li id="list1">
+				<input type="checkbox" checked><label>helo</label>
+			</li> -->
+			
+		</ul>
+	</div></center>
+	</div>
+	<script type="text/javascript" src="script.js">
+	</script>
+	
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+	
+
+	var text = document.getElementById("hour");	
+var g = document.getElementById("greet");
+function clock() {
+	var date = new Date();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var gt;
+   if (hour < 5 || hour > 19) {
+  gt = 'night';
+}
+else if (hour < 12) {
+	gt = "morning"
+}
+else if (hour < 19) {
+	gt = "afternoon"
+}
+else if (hour < 20) {
+	gt = "evening"
+}
+text.innerHTML = hour +":" + min;
+g.innerHTML = "Good "+ gt + ", " + name ;
+var url = gt + ".jpg"
+console.log(url);
+document.getElementById("imgtag").setAttribute("src", url);
+}
+clock();	
+setInterval(clock, 1000);
+</script>
+</body>
+</html>
